@@ -1,1 +1,58 @@
-<router-outlet />
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+      <li>
+        <a routerLink="/blog" routerLinkActive="active">Blog</a>
+
+        <ul>
+          <li>
+            <a routerLink="/blog/my-first-post" routerLinkActive="active"
+              >My first post</a
+            >
+          </li>
+          <li>
+            <a routerLink="/blog/my-second-post" routerLinkActive="active"
+              >My second post</a
+            >
+          </li>
+          <li>
+            <a routerLink="/blog/my-third-post" routerLinkActive="active"
+              >My third post</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a routerLink="/projects" routerLinkActive="active">Projects</a>
+
+        <ul>
+          <li>
+            <a routerLink="/projects/my-first-project" routerLinkActive="active"
+              >My first project</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/projects/my-second-project"
+              routerLinkActive="active"
+              >My second project</a
+            >
+          </li>
+          <li>
+            <a routerLink="/projects/my-third-project" routerLinkActive="active"
+              >My third project</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <router-outlet />
+</main>
