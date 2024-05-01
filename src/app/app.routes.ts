@@ -10,9 +10,9 @@ const staticRoutes = [
 
 const paths = [
   'blog',
-  'blog/my-first-post',
-  'blog/my-second-post',
-  'blog/my-third-post',
+  'blog/my-first-blog-post',
+  'blog/my-second-blog-post',
+  'blog/my-third-blog-post',
   'projects',
   'projects/my-first-project',
   'projects/my-second-project',
@@ -25,4 +25,3 @@ const dynamicRoutes = paths.map((path: string) => ({
 }));
 
 export const routes: Routes = [...dynamicRoutes, ...staticRoutes];
-console.log(routes);

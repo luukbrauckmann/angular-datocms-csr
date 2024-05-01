@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import gql from 'graphql-tag';
+import { DatocmsService } from '../../lib';
 
 @Component({
   selector: 'app-page',
@@ -10,6 +12,26 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class PageComponent {
   private router = inject(Router);
+  private url = this.router.url;
+  private slug = this.url.split('/').pop();
 
-  public url = this.router.url;
+  private datocms = inject(DatocmsService);
+  private query = gql`
+    query Home {
+      page(filter: { slug: { eq: "${this.slug}" } }) {
+        id
+        title
+      }
+    }
+  `;
+
+  public page: any;
+
+  ngOnInit() {
+    this.datocms.request<any>(this.query).subscribe({
+      next: ({ data }) => {
+        this.page = data.page;
+      },
+    });
+  }
 }
